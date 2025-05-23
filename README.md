@@ -12,43 +12,21 @@ To write a C Program to perform the basic left shift operation for 44 integer nu
 
 ## PROGRAM
 ```
-#include <stdio.h>
-
-int main() {
-
-    int a = 44, b = 3;
-    int result = a << b;
-    printf("Original value: %d\n", a);
-    printf("Value after left shifting by %d positions: %d\n", b, result);
-    return 0;
+#include <stdio.h> 
+int main() { 
+int a = 44, b = 3; 
+int result = a << b; 
+printf("The result of left shifting %d by %d positions is: %d\n", a, b, result); 
+return 0; 
 }
 ```
 ## OUTPUT
-```
-Original value: 44
-Value after left shifting by 3 positions: 352
-```
-
-
-
-
-
-
-
+![image](https://github.com/user-attachments/assets/312f0ec2-9e18-481f-ab8e-74a73af74ab9)
 
 ## RESULT
 Thus the program to perform the basic left shift operation for 44 integer number with 3 shifts has been executed successfully.
 
-
-
-
- 
- 
-
-
 # EX-17-TWO-NUMBERS-ARE-EQUAL-OR-NOT
-
-
 ## AIM
 
 Write a C Program to check whether the two numbers are equal or not using simple if statement.
@@ -64,33 +42,24 @@ Write a C Program to check whether the two numbers are equal or not using simple
 ## PROGRAM
 ```
 #include <stdio.h>
-
-int main() {
-
-    int num1, num2;
-    printf("Enter the first number: ");
-    scanf("%d", &num1);
-
-    printf("Enter the second number: ");
-    scanf("%d", &num2);
-    if (num1 == num2) {
-
-        printf("Both numbers are equal.\n");
-    } else {
-        
-        printf("Both numbers are not equal.\n");
+int main()
+{
+    int a,b;
+    scanf("%d%d",&a,&b);
+    if (a==b)
+    {
+        printf("Number1 and Number2 are equal");
     }
-
-    return 0; 
+    else
+    {
+        printf("Number1 and Number2 are not equal");
+    }
 }
 ```
 
 ## OUTPUT
-```
- Enter the first number: 10
-Enter the second number: 10
-Both numbers are equal.
-```         
+![image](https://github.com/user-attachments/assets/39bb0107-d685-4943-9260-93055a27c0c7)
+
 ## RESULT
 
 Thus the program to check whether the two numbers are equal or not using simple if statement has been executed successfully
@@ -112,24 +81,22 @@ Write a C Program to convert the given string into lowercase.
 ## PROGRAM
 ```
 #include <stdio.h>
-#include <ctype.h> 
+#include <ctype.h>
 
 int main() {
     char str[100];
-    printf("Enter a string: ");
-    fgets(str, sizeof(str), stdin); 
-    for (int i = 0; str[i] != '\0'; i++) {
-        str[i] = tolower(str[i]); 
+    int i;
+    scanf("%s", str);
+    for (i = 0; str[i] != '\0'; i++) {
+        str[i] = tolower(str[i]);
     }
-    printf("Lowercase string: %s\n", str);
-    return 0; 
+    printf("Lower case String is:%s\n", str);
+
+    return 0;
 }
 ```
 ## OUTPUT
-```
-Enter a string: Hello World!
-Lowercase string: hello world!
-```
+![image](https://github.com/user-attachments/assets/b54c2a6d-9dc6-4da7-aa09-fcd08d7fba15)
 
 
 
@@ -152,34 +119,25 @@ Write a C Program to count the total number of words in a given string using do 
 6.	Stop the program.
 
 ## PROGRAM
-```#include <stdio.h>
-#include <string.h>
-#include <ctype.h>
-
-int main() {
-    char str[1000];
-    int i = 0, count = 0;
-
-    printf("Enter a string: ");
-    fgets(str, sizeof(str), stdin);
-    str[strcspn(str, "\n")] = '\0';
-    while (isspace(str[i])) {
-        i++;
-    }
-
-    do {
-        if (isspace(str[i]) && !isspace(str[i - 1])) {
-            count++;
-        }
-        i++;
-    } while (str[i] != '\0');
+```
+#include <stdio.h> 
+int main() 
+{ 
+char str[100]; 
+int i = 0, count = 1; 
+fgets(str, sizeof(str), stdin); 
+do { 
+if (str[i] == ' ' || str[i] == '\t' || str[i] == '\n') { 
+count++; 
+} 
+i++; 
+} while (str[i] != '\0'); 
+printf("Total number of words: %d\n", count); 
+return 0;
+}
 ```
 ## OUTPUT
-```
-Enter a string: Hello, how are you today?
-Total number of words: 5
-```
-
+![image](https://github.com/user-attachments/assets/83ef3efb-e3f3-40ba-9d45-f9c2e0396c0e)
 
 
 
@@ -211,33 +169,39 @@ Step 8: End the program.
 
 ## PROGRAM
 ```
-#include <stdio.h>
-
-int main() {
-    char c1[100], c2[100];
-    int i = 0, flag = 0;
-
-    printf("Enter the first string (can include spaces): ");
-    scanf("%[^\n]", c1);
-    getchar();
-    printf("Enter the second string (no spaces): ");
-    scanf("%s", c2);
-    while (c1[i] != '\0' && c2[i] != '\0') {
-        if (c1[i] != c2[i]) {
-            flag = 1;
-            break;
-        }
-        i++;
+#include <stdio.h> 
+int main(){ 
+    char c1[100], c2[100]; 
+    int i = 0, flag = 0; 
+    scanf("%[^\n]", c1); 
+    scanf("%s", c2); 
+    while (c1[i] != '\0' && c2[i] != '\0') 
+    { 
+        if (c1[i] != c2[i]) 
+        { 
+        flag = 1; 
+        break; 
+        } 
+        i++; 
+    } 
+    if (c1[i] != '\0' || c2[i] != '\0') 
+    { 
+    flag = 1; 
+    } 
+    if (flag == 0) 
+    { 
+    printf("Strings are same.\n"); 
     }
-    if (c1[i] != '\0' || c2[i] != '\
+    else {
+    printf("Strings are not same.\n"); 
+    } 
+    return 0; 
+}
 ```
 
 ## OUTPUT
- ```
-Enter the first string (can include spaces): Hello World
-Enter the second string (no spaces): Hello
-Strings are not same.
-```
+![image](https://github.com/user-attachments/assets/12268113-1a0f-4d26-bdd9-88d17c8e023e)
+ 
 
 ## RESULT
 Thus the C Program to compare two strings without using strcmp() has been executed successfully.
